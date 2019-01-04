@@ -26,6 +26,9 @@ const collect = (val, arr) => {
   return arr
 }
 
+/**
+ * Without using `.command`, this works as the root command.
+ */
 mycli
   .option('-u, --username <name>', `specify the user's name`)
   .option('-a, --age [age]', `specify the user's age`)
@@ -83,6 +86,53 @@ mycli
         bot(infoLine)
       })
     }
+  })
+
+mycli
+  .command('time')
+  .alias('t')
+  .description('show the current local time')
+  .action(() => {
+    /**
+     * The `Date.now()` method returns the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.
+     * By using `new Date()`, a Date object is created.
+     * The `.toLocaleTimeString()` method then transforms it into the human readable form.
+     */
+    const now = new Date(Date.now())
+    console.log(now.toLocaleTimeString())
+  })
+
+mycli
+  .command('sum')
+  .alias('s')
+  .arguments('<numbers...>')
+  .description('calculate sum of several numbers')
+  .action(numbers => {
+    /**
+     * `Array.prototype.reduce()` executes the reducer function on each member of the array,
+     * resulting in a single output value.
+     */
+    console.log(
+      numbers.reduce(
+        (accumulator, currentValue) =>
+          parseFloat(accumulator) + parseFloat(currentValue),
+      ),
+    )
+  })
+
+mycli
+  .command('match')
+  .alias('m')
+  .arguments('<first> <second> [coefficient]')
+  .option('-r, --random', 'add a random value to the final result')
+  .description('calculate how much the first person matches the second one')
+  .action((first, second, coefficient = 1, cmd) => {
+    let result = Math.abs(first.length - second.length) / 1.0
+    if (cmd.random) {
+      result += Math.random()
+    }
+    result *= coefficient
+    console.log(`The match point of ${first} and ${second} is ${result}`)
   })
 
 /**
