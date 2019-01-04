@@ -6,6 +6,7 @@
  */
 
 const mycli = require('commander')
+const shelljs = require('shelljs')
 
 /**
  * This arrow function is used for generating our bot's replies.
@@ -133,6 +134,16 @@ mycli
     }
     result *= coefficient
     console.log(`The match point of ${first} and ${second} is ${result}`)
+  })
+
+mycli
+  .command('shell')
+  .description('use shelljs to do some shell work')
+  .action(() => {
+    shelljs.ls('-Al').forEach(file => {
+      const birthTimeUTC = new Date(file.birthtimeMs).toUTCString()
+      console.log(`${file.name} was created at ${birthTimeUTC}.`)
+    })
   })
 
 /**
