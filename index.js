@@ -127,7 +127,7 @@ mycli
   .option('-r, --random', 'add a random value to the final result')
   .description('calculate how much the first person matches the second one')
   .action((first, second, coefficient = 1, cmd) => {
-    let result = Math.abs(first.length - second.length) / 1.0
+    let result = Math.abs(first.length - second.length)
     if (cmd.random) {
       result += Math.random()
     }
