@@ -11,10 +11,6 @@ Most programmers prefer CLI to GUI, why?
 But not so many have actually developed a CLI. Fortunately, with the help of
 several handful packages, it has become effortless to build a CLI with NodeJS.
 
-Here is the companion repo of this post:
-
-{% github https://github.com/pkuosa-gabriel/node-cli-starter %}
-
 The main packages we will be using:
 
 - [commander](https://github.com/tj/commander.js)
