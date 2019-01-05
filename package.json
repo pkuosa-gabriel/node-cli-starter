@@ -2,7 +2,7 @@
   "name": "node-cli-starter",
   "version": "1.0.0",
   "description": "A starter for building node.js based CLI tools.",
-  "main": "index.js",
+  "main": "mycli.js",
   "repository": "git@github.com:pkuosa-gabriel/node-cli-starter.git",
   "author": "Gabriel Wu <qqbbnease1004@126.com>",
   "license": "MIT",
@@ -20,5 +20,11 @@
     "lint-staged": "^8.1.0",
     "pkg": "^4.3.5",
     "prettier": "^1.15.3"
+  },
+  "scripts": {
+    "package:mac": "pkg mycli.js --targets node10-macos-x64 --output dist/mac/mycli",
+    "package:win": "pkg mycli.js --targets node10-win-x64 --output dist/win/mycli.exe",
+    "package:linux": "pkg mycli.js --targets node10-linux-x64 --output dist/linux/mycli",
+    "package:all": "yarn package:mac && yarn package:win && yarn package:linux"
   }
 }
