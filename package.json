@@ -1,8 +1,11 @@
 {
-  "name": "node-cli-starter",
+  "name": "@pkuosa-gabriel/node-cli-starter",
   "version": "1.0.0",
   "description": "A starter for building node.js based CLI tools.",
   "main": "mycli.js",
+  "bin": {
+    "mycli": "./mycli.js"
+  },
   "repository": "git@github.com:pkuosa-gabriel/node-cli-starter.git",
   "author": "Gabriel Wu <qqbbnease1004@126.com>",
   "license": "MIT",
