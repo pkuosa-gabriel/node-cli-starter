@@ -10,7 +10,7 @@
   "author": "Gabriel Wu <qqbbnease1004@126.com>",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.20.0",
+    "commander": "^5.0.0",
     "shelljs": "^0.8.3"
   },
   "husky": {
